@@ -16,13 +16,12 @@
 
   <body>
     
-    <h1>
-      Weather in Your town
-    </h1>
-
-      <div class="container">
+          <div class="container">
+        <h1>
+          Weather in <span id="city-now2">Your town</span> 
+        </h1>
         <div class="weather-app">
-          <form class="search-form" id="city">
+          <form class="search-form" id="search-form">
             <div class="row">
               <div class="col-6">
                 <input type="search" placeholder="Type a city.." autofocus="on" 
@@ -47,20 +46,20 @@
             <li id="date-now">
               Wednesday 22:00
             </li>
-            <li id="main">
+            <li id="description">
               Partly Cloudy
             </li>
           </ul>
           <div class="row">
             <div class="col-6">
-              <div class="clearfix">
-                <span id="weather-icon"></span>
-                <!-- <img src="" alt="icon" class="weather-icon float-left"  id="weather-icon"> -->
+              <div class="clearfix weather-temperature">
+                <!-- <span id="weather-icon"></span> -->
+                <img src="" alt="Partly Cloudy" class="float-left"  id="weather-icon">
                 <div class="float-left">
                   <span class="temperature" id="temperature">19 </span>
-                  <span class="units">°C
-                    <!-- <a href="#" id="tempC-link">°C</a>  | 
-                    <a href="#" id="tempF-link">°F</a> -->
+                  <span class="units">
+                    <a href="#" id="celsius-link">°C</a>  | 
+                    <a href="#" id="fahrenheit-link">°F</a>
                   </span>
                 </div>
               </div>
@@ -81,12 +80,13 @@
           </div>
         </div>
       </div>
-  
-  <footer>
+    
+      <footer>
         <a href="https://github.com/AnyaDushka/shecodesstudy"
           target="_blank">Open-source code</a>
         by Anastasiia Dutka
-  </footer>
+      </footer>
+
 
       <script src="styles/index.js"></script>
 
