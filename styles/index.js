@@ -35,17 +35,27 @@ currentDate.innerHTML = formatDate(currentTime);
 function showWeather(responce){
     // console.log(responce);
     let tempElement=document.querySelector("#temperature");
-    tempElement.innerHTML=Math.round(responce.data.main.temp);
-    let description=document.querySelector("#main");
+    // tempElement.innerHTML=Math.round(responce.data.main.temp);
+    celsiusTemp=responce.data.main.temp;
+    tempElement.innerHTML=Math.round(celsiusTemp);
+    let description=document.querySelector("#description");
     description.innerHTML=responce.data.weather[0].description;
-    let icons = responce.data.weather[0].icon;
-    document.querySelector("#weather-icon").innerHTML = 
-    `<img src="http://openweathermap.org/img/w/${icons}.png" alt="icon" />`;
+    // let icons = responce.data.weather[0].icon;
+    // document.querySelector("#weather-icon").innerHTML = 
+    // `<img src="http://openweathermap.org/img/w/${icons}.png" alt="icon" />`;
    
+    let iconElement=document.querySelector("#weather-icon");
+    iconElement.setAttribute("src",
+    `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", responce.data.weather[0].description);
+
+
     document.querySelector("#visibility").innerHTML=(responce.data.visibility/1000);
     document.querySelector("#humidity").innerHTML=responce.data.main.humidity;
     document.querySelector("#wind").innerHTML=Math.round(responce.data.wind.speed);
     document.querySelector("#city-now").innerHTML=responce.data.name;
+    document.querySelector("#city-now2").innerHTML=responce.data.name;
+
 }
 
 function search(city) {
@@ -62,7 +72,7 @@ function clickCity(event) {
     search(city);
 }
 
-let button = document.querySelector("#city");
+let button = document.querySelector("#search-form");
 button.addEventListener("submit", clickCity);
 
 //3
@@ -82,3 +92,36 @@ function getCurrentPosition(event){
 }
 let currentButton=document.querySelector("#current");
 currentButton.addEventListener("click", getCurrentPosition);
+
+//4
+function displayFahrenheitTemp(ev){
+    ev.preventDefault();
+    let temperatureElement=document.querySelector("#temperature");
+    //add the active class the celsius link
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemp=(celsiusTemp*9)/5+32;
+    // alert("Link click");
+    // alert(fahrenheitTemp);
+    temperatureElement.innerHTML=Math.round(fahrenheitTemp);
+}
+
+function displayCelsiusTemp(ev){
+    ev.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.re("active");
+    let temperatureElement=document.querySelector("#temperature");
+    temperatureElement.innerHTML=Math.round(celsiusTemp);
+
+}
+
+let celsiusTemp=null;
+
+// let form=document.querySelector("#search-form");
+// form.addEventListener("submit", clickCity);
+
+let fahrenheitLink=document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink=document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
