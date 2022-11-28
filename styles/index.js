@@ -56,6 +56,8 @@ function showWeather(responce){
     document.querySelector("#city-now").innerHTML=responce.data.name;
     document.querySelector("#city-now2").innerHTML=responce.data.name;
 
+    getForecast(responce.data.coord);
+
 }
 
 function search(city) {
@@ -126,4 +128,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink=document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-search("Berlin");
+search("Kyiv");
