@@ -29,7 +29,8 @@ h1{
     padding: 15px;
     margin: 20px auto;
     border-radius: 10px;
-    max-width: 600px;
+    max-width: 700px;
+    background-color: rgba(221, 240, 243, 0.38);
 }
 .weather-temperature{
     text-decoration: none;
@@ -162,6 +163,33 @@ li:first-letter{
 #humidity,
 #wind{
     color: #6a00ff;
+}
+
+.card-forecast{
+    border: #0044ff solid 1px;
+    border-radius: 5px;
+    opacity: 0.8;
+    padding: 2px;
+    background-color: rgba(215, 183, 246, 0.471);
+
+}
+.weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+}
+.weather-forecast-date{
+    font-size: 16px;
+    color: #0044ff;
+}
+.weather-forecast-temperatures{
+    font-size: 13px;
+}
+.weather-forecast-temperature-max{
+    padding-right: 5px;
+    color: #ff0101;
+}
+.weather-forecast-temperature-min{
+    color: #0d03c4;
 }
 
 footer{
