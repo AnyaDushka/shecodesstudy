@@ -111,7 +111,7 @@ function displayFahrenheitTemp(ev){
 function displayCelsiusTemp(ev){
     ev.preventDefault();
     celsiusLink.classList.add("active");
-    fahrenheitLink.classList.re("active");
+    fahrenheitLink.classList.remove("active");
     let temperatureElement=document.querySelector("#temperature");
     temperatureElement.innerHTML=Math.round(celsiusTemp);
 
